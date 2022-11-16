@@ -271,8 +271,8 @@ if __name__ == '__main__':
         'otherfurniture'
     ]
     VALID_CLASS_IDS = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33, 34, 36, 39]
-    data_path = './dataset/scannetv2/val/'
-    results_path = './results'
+    data_path = '/data1/szh/softgroup/val/'
+    results_path = '/data1/szh/softgroup/result'
     iou_threshold = 0.25  # adjust threshold here
     instance_paths = glob.glob(osp.join(results_path, 'pred_instance', '*.txt'))
     instance_paths.sort()
@@ -326,5 +326,6 @@ if __name__ == '__main__':
     print('Evaluating...')
     eval_res = eval_sphere(pred_all, gt_all, ovthresh=iou_threshold)
     aps = list(eval_res[-1].values())
+    print(aps)
     mAP = np.mean(aps)
     print('mAP:', mAP)

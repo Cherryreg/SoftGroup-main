@@ -6,11 +6,17 @@ from .custom import CustomDataset
 
 class ScanNetDataset(CustomDataset):
 
-    CLASSES = ('cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 'bookshelf', 'picture',
-               'counter', 'desk', 'curtain', 'refrigerator', 'shower curtain', 'toilet', 'sink',
-               'bathtub', 'otherfurniture')
-    NYU_ID = (3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33, 34, 36, 39)
-
+    # CLASSES = ('cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 'bookshelf', 'picture',
+    #            'counter', 'desk', 'curtain', 'refrigerator', 'shower curtain', 'toilet', 'sink',
+    #            'bathtub', 'otherfurniture')
+    CLASSES = ('bathtub', 'bed', 'bench', 'bookshelf', 'bottle', 'chair', 'cup', 'curtain', 'desk', 'door', 'dresser',
+             'keyboard', 'lamp', 'laptop', 'monitor',
+             'night_stand', 'plant', 'sofa', 'stool', 'table', 'toilet', 'wardrobe')
+    # NYU_ID = (3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33, 34, 36, 39)
+    modelnet40_ID = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21)
+    # modelnet40 = ('bathtub', 'bed', 'bench', 'bookshelf', 'bottle', 'chair', 'cup', 'curtain', 'desk', 'door', 'dresser',
+    #          'keyboard', 'lamp', 'laptop', 'monitor',
+    #          'night_stand', 'plant', 'sofa', 'stool', 'table', 'toilet', 'wardrobe')
     def load(self, filename):
         if self.with_label:
             return torch.load(filename)

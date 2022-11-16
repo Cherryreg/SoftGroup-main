@@ -6,13 +6,18 @@ import os
 import numpy as np
 import torch
 
-semantic_label_idxs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33, 34, 36, 39]
+# semantic_label_idxs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 24, 28, 33, 34, 36, 39]
+# semantic_label_names = [
+#     'wall', 'floor', 'cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 'bookshelf',
+#     'picture', 'counter', 'desk', 'curtain', 'refrigerator', 'shower curtain', 'toilet', 'sink',
+#     'bathtub', 'otherfurniture'
+# ]
+semantic_label_idxs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
 semantic_label_names = [
-    'wall', 'floor', 'cabinet', 'bed', 'chair', 'sofa', 'table', 'door', 'window', 'bookshelf',
-    'picture', 'counter', 'desk', 'curtain', 'refrigerator', 'shower curtain', 'toilet', 'sink',
-    'bathtub', 'otherfurniture'
+     'bathtub', 'bed', 'bench', 'bookshelf', 'bottle', 'chair', 'cup', 'curtain', 'desk', 'door', 'dresser',
+             'keyboard', 'lamp', 'laptop', 'monitor',
+             'night_stand', 'plant', 'sofa', 'stool', 'table', 'toilet', 'wardrobe', 'backgroud'
 ]
-
 if __name__ == '__main__':
     split = 'val'
     files = sorted(glob.glob('{}/scene*_inst_nostuff.pth'.format(split)))
